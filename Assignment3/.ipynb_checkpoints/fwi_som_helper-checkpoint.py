@@ -6,7 +6,6 @@ Added percentile based BMU plotting.
 
 Created by: Kit Difuntorum 2025
 Last edited by: Sam Walls 02/09/2026
-"""
 
 __version__ = "01.06.00"
 
@@ -535,7 +534,8 @@ def som_distribution(som, som_x, som_y, data):
     counts = np.bincount(labels, minlength=som_x * som_y)
     plt.figure(figsize=(6, 3.5))
     plt.bar(np.arange(som_x * som_y), counts)
-    plt.xlabel('SOM Unit ID (0 to 8)')
+    maxnode = (som_x * som_y) - 1
+    plt.xlabel(f'SOM Unit ID (0 to {maxnode})')
     plt.ylabel('Sample count')
     plt.title('Samples per Cluster')
     plt.tight_layout()
